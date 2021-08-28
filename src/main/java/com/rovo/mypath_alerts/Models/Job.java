@@ -15,18 +15,38 @@ public class Job {
     private  String location;
     private  String experience;
     private  String education;
+    private int PayPackage;
     @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "CREATED_TIME")
     private Date date;
     private String jobDiscription;
     private String applyLink;
     private String batch;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private Date lastDate;
     private Boolean isGovernment;
+
+    public Date getLastDate() {
+        return lastDate;
+    }
+
+    public void setLastDate(Date lastDate) {
+        this.lastDate = lastDate;
+    }
+
     @Lob
     private byte[] jobDetails;
 
     public Job() {
 
+    }
+
+    public int getPayPackage() {
+        return PayPackage;
+    }
+
+    public void setPayPackage(int payPackage) {
+        PayPackage = payPackage;
     }
 
     public Long getJobId() {
