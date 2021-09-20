@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,16 +19,29 @@ public class JobService {
     @Autowired
     private Job_Repo job_repo;
 
-    //To Find recent 20 jobs sort by ids
     public List<Job> DisplayAll(){
-        int limit=20;
-        List<Job> ls =new ArrayList<>();
         return job_repo.findAll(Sort.by(Sort.Direction.DESC, "jobId"));
-
     }
     @Transactional
     public void  addNewJob(Job job){
         job_repo.save(job);
     }
+
+    public void editJob(Job job){
+        job_repo.save(job);}
+
+    public void deleteJob(Long id){
+      job_repo.deleteById(id);
+    }
+
+    public List<Job> search(String keyword){
+        return job_repo.searchJob(keyword);
+    }
+
+    @Modifying
+    public void AutoDelete(){
+        job_repo.deleteByCreatedOnBefore(java.time.LocalDate.now());
+    }
+
 
 }
