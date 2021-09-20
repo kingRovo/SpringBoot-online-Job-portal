@@ -27,8 +27,10 @@ public class JobService {
         job_repo.save(job);
     }
 
-    public void editJob(Job job){
-        job_repo.save(job);}
+    public void editJob(Long id){
+        Job editJob = job_repo.getById(id);
+        job_repo.save(editJob);
+    }
 
     public void deleteJob(Long id){
       job_repo.deleteById(id);
