@@ -25,6 +25,8 @@ public class Job {
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date lastDate;
     private Boolean isGovernment;
+    @Lob
+    private byte[] jobDetails;
 
     public Date getLastDate() {
         return lastDate;
@@ -34,8 +36,7 @@ public class Job {
         this.lastDate = lastDate;
     }
 
-    @Lob
-    private byte[] jobDetails;
+
 
     public Job() {
 

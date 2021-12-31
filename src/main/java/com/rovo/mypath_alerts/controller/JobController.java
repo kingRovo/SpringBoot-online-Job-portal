@@ -24,7 +24,7 @@ public class JobController {
     public void addJob(@RequestBody Job job){
         jobService.addNewJob(job);
     }
-    @PutMapping("/edit_job{id}")
+    @PutMapping("/edit_job/{id}")
     public  void editJob(@PathVariable Long id){
         jobService.editJob(id);
     }
@@ -32,7 +32,5 @@ public class JobController {
     public void DeleteAfterJobExpire(){
         jobService.AutoDelete();
     }
-
-
 
 }
