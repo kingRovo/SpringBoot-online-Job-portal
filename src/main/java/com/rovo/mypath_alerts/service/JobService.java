@@ -19,29 +19,30 @@ public class JobService {
     @Autowired
     private Job_Repo job_repo;
 
-    public List<Job> DisplayAll(){
+    public List<Job> DisplayAll() {
         return job_repo.findAll(Sort.by(Sort.Direction.DESC, "jobId"));
     }
+
     @Transactional
-    public void  addNewJob(Job job){
+    public void addNewJob(Job job) {
         job_repo.save(job);
     }
 
-    public void editJob(Long id){
+    public void editJob(Long id) {
         Job editJob = job_repo.getById(id);
         job_repo.save(editJob);
     }
 
-    public void deleteJob(Long id){
-      job_repo.deleteById(id);
+    public void deleteJob(Long id) {
+        job_repo.deleteById(id);
     }
 
-    public List<Job> search(String keyword){
+    public List<Job> search(String keyword) {
         return job_repo.searchJob(keyword);
     }
 
     @Modifying
-    public void AutoDelete(){
+    public void AutoDelete() {
         job_repo.deleteByCreatedOnBefore(java.time.LocalDate.now());
     }
 

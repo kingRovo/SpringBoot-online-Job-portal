@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MypathAlertsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MypathAlertsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MypathAlertsApplication.class, args);
+    }
 
 }

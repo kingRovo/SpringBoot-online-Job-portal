@@ -13,23 +13,27 @@ public class JobController {
     private JobService jobService;
 
     @GetMapping("/")
-    public List<Job> DisplayJobs(){
+    public List<Job> DisplayJobs() {
         return jobService.DisplayAll();
     }
+
     @GetMapping("/findJob/{job}")
-    public List<Job>FindJob(@PathVariable String keyword){
+    public List<Job> FindJob(@PathVariable String keyword) {
         return jobService.search(keyword);
     }
+
     @PostMapping("/job")
-    public void addJob(@RequestBody Job job){
+    public void addJob(@RequestBody Job job) {
         jobService.addNewJob(job);
     }
+
     @PutMapping("/edit_job/{id}")
-    public  void editJob(@PathVariable Long id){
+    public void editJob(@PathVariable Long id) {
         jobService.editJob(id);
     }
+
     @DeleteMapping("/")
-    public void DeleteAfterJobExpire(){
+    public void DeleteAfterJobExpire() {
         jobService.AutoDelete();
     }
 

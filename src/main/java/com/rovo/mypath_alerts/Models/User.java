@@ -13,7 +13,8 @@ public class User {
     private String name;
     private String mail;
     private String H_degree;
-    public User(){
+
+    public User() {
 
     }
 

@@ -13,11 +13,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.GET,"/").permitAll()
+                .antMatchers(HttpMethod.GET, "/").permitAll()
                 .antMatchers(HttpMethod.GET, "/findJob/*").permitAll()
-                .antMatchers(HttpMethod.POST,"/job").permitAll()
-                .antMatchers(HttpMethod.PUT,"/edit_job/*").permitAll()
-                .antMatchers(HttpMethod.DELETE,"/").permitAll()
+                .antMatchers(HttpMethod.POST, "/job").permitAll()
+                .antMatchers(HttpMethod.PUT, "/edit_job/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/").permitAll()
                 .anyRequest().authenticated();
     }
 }

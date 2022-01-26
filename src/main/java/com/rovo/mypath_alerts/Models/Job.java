@@ -1,4 +1,5 @@
 package com.rovo.mypath_alerts.Models;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
@@ -12,9 +13,9 @@ public class Job {
     private String title;
     private String companyName;
     private String jobRole;
-    private  String location;
-    private  String experience;
-    private  String education;
+    private String location;
+    private String experience;
+    private String education;
     private int PayPackage;
     @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "CREATED_TIME")
@@ -22,7 +23,7 @@ public class Job {
     private String jobDiscription;
     private String applyLink;
     private String batch;
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date lastDate;
     private Boolean isGovernment;
     @Lob
@@ -35,7 +36,6 @@ public class Job {
     public void setLastDate(Date lastDate) {
         this.lastDate = lastDate;
     }
-
 
 
     public Job() {
